@@ -1,0 +1,43 @@
+{
+  "defaultSeverity": "error",
+  "extends": ["tslint-config-airbnb", "tslint-react", "tslint-config-prettier"],
+  "jsRules": {},
+  "rulesDirectory": [],
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "import-name": [true, { "react": "React" }],
+  "variable-name": [
+    true,
+    "ban-keywords",
+    "check-format",
+    "allow-pascal-case",
+    "allow-leading-underscore"
+  ],
+  "plugins": ["react", "react-hooks"],
+  "parser": "@typescript-eslint/parser",
+  "rules": {
+    "import/no-unresolved": "off",
+    "import/no-extraneous-dependencies": 0,
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "jsx-a11y/label-has-for": [
+      2,
+      {
+        "required": { "every": ["id"] }
+      }
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+@import "_assets/scss/abstractions/variables.scss";
+
+.error {
+  background-color: #bf4545;
+  border-radius: 3px;
+  color: #fff;
+  padding-left: 10px;
+  font-size: $smallest;
+}
+.icon {
+  font-size: 20;
+}
+#client-snackbar {
+  display: flex;
+  align-items: center;
+}
+.iconVariant {
+  opacity: 0.9;
+  margin-right: 10px;
+}
