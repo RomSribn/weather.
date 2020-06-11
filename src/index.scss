@@ -1,0 +1,264 @@
+@import '_assets/scss/abstractions/variables.scss';
+
+.topSearch {
+  position: top;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  min-width: 320px;
+  margin: auto;
+  background-color: #fff;
+}
+.show {
+  transform: translateY(-76px);
+}
+.mdc-btn {
+  min-width: 88px;
+  height: 36px;
+  padding: 0 16px;
+  border: 0;
+  outline: 0;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 600;
+  background-color: #9ad3de;
+  cursor: pointer;
+  box-shadow: 0 4px 4px 0 rgba(65, 65, 65, 0.3);
+}
+.mdc-btn:hover {
+  background-color: #b3f3ff;
+}
+.mdc-btn:active {
+  box-shadow: 0 6px 4px 0 rgba(65, 65, 65, 0.3);
+}
+.search-form {
+  display: flex;
+  justify-content: center;
+  transition: top 1s ease-out 0.5s;
+  /*padding: 20px;*/
+  /* box-shadow: 0 0 2px 2px rgba(65, 65, 65, 0.2);
+    border-radius: 5px;*/
+}
+.search-form input {
+  margin-right: 12px;
+  padding: 4px;
+  outline: 0;
+  border: 0;
+  color: #c9c9c9;
+  font-size: 18px;
+  background-color: transparent;
+}
+.search-form input::placeholder {
+  color: #c9c9c9;
+}
+
+/*----------------
+    General
+  -----------------*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+/* Remove outline > Apply other styles for accessibility */
+:focus {
+  outline: none;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+body {
+  color: #fff;
+  font-family: 'Alegreya Sans', sans-serif;
+  font-weight: 300;
+  position: relative;
+  letter-spacing: 0.05rem;
+  line-height: 1.5;
+  text-align: center;
+}
+a {
+  color: #6d8ca0;
+  font-weight: 700;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/*----------------
+    Containers
+  -----------------*/
+.wrapper {
+  color: #fff;
+  overflow: auto;
+  width: 100%;
+}
+
+/*----------------
+    Status Bar
+  -----------------*/
+#status {
+  background-color: #ffecae;
+  color: rgba(0, 0, 0, 0.5);
+  display: none;
+  font-size: 1rem;
+  width: 100%;
+  z-index: 100;
+}
+#status p {
+  display: inline-block;
+  padding: 10px 40px 6px;
+}
+#status a {
+  color: #fff;
+}
+#status .close {
+  background: none;
+  color: rgba(0, 0, 0, 0.5);
+  float: right;
+  height: 40px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 40px;
+}
+/*** Error & Success Messages ***/
+#status.error {
+  background-color: #ee9797;
+}
+#status.success {
+  background-color: #82c886;
+}
+#status.error,
+#status.error .close,
+#status.success,
+#status.success .close {
+  color: #fff;
+}
+#status.error .fa-exclamation-triangle,
+#status.success .fa-check-circle {
+  margin-right: 10px;
+}
+
+/*----------------
+    Buttons
+  -----------------*/
+button {
+  border: none;
+  cursor: pointer;
+}
+
+#locateBtn,
+#unitBtn {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  color: #fff;
+  height: 40px;
+  transition: background 1s ease-in-out, border 0.2s ease-in-out;
+  width: 40px;
+}
+
+.animation {
+  -webkit-animation: pulsing 2s infinite;
+  animation: pulsing 2s infinite;
+}
+
+@-webkit-keyframes pulsing {
+  0% {
+    -webkit-transform: scale(0.5, 0.5);
+    transform: scale(0.5, 0.5);
+  }
+  50% {
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+  100% {
+    -webkit-transform: scale(0.5, 0.5);
+    transform: scale(0.5, 0.5);
+  }
+}
+
+@keyframes pulsing {
+  0% {
+    -webkit-transform: scale(0.5, 0.5);
+    transform: scale(0.5, 0.5);
+  }
+  50% {
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+  100% {
+    -webkit-transform: scale(0.5, 0.5);
+    transform: scale(0.5, 0.5);
+  }
+}
+#locateBtn.on,
+#unitBtn.on {
+  background: rgba(255, 255, 255, 0.25);
+}
+#locateBtn:focus,
+#locateBtn:hover,
+#unitBtn:focus,
+#unitBtn:hover {
+  border: 1px solid rgba(255, 255, 255, 0.75);
+}
+#locateBtn {
+  margin-right: 10px;
+}
+#unitBtn {
+  font-weight: 300;
+  padding-right: 3px;
+  padding-top: 2px;
+  text-transform: uppercase;
+}
+#unitBtn:before {
+  content: '\00b0'; /* Degree symbol */
+  padding: 1px;
+}
+/* locateBtn Pulse Animation */
+#locateBtn.pulse {
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  20% {
+    background: rgba(255, 255, 255, 0.25);
+  }
+}
+
+/*----------------
+  Media Queries
+-----------------*/
+@media (min-width: $mobileS) {
+  #locateBtn,
+  #unitBtn {
+    display: block;
+    margin-bottom: 10px;
+  }
+}
+@media (min-width: $mobileMd) {
+  footer {
+    font-size: 0.9rem;
+  }
+}
+
+@media (min-width: $desktopS) {
+  nav {
+    top: 5%;
+  }
+  #current {
+    font-size: 1.5rem;
+    padding-bottom: 7%;
+    padding-top: 7%;
+  }
+  #current .weatherIcon {
+    font-size: 0.82em;
+    margin: 5% auto 2%;
+  }
+  #lastUpdated {
+    padding: 3%;
+  }
+}

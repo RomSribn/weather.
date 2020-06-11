@@ -6,18 +6,18 @@
     "12factor-config": "^2.0.0",
     "@material-ui/core": "^4.10.1",
     "@material-ui/icons": "^4.9.1",
-    "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1",
-    "typescript": "^3.9.5"
+    "react-scripts": "3.4.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "./node_modules/.bin/tslint -p tsconfig.json",
+    "lint-fixup": "./node_modules/.bin/tslint -e --project .ts,.tsx --fix"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -39,9 +39,20 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "@typescript-eslint/parser": "^3.2.0",
+    "eslint-plugin-react-hooks": "^4.0.4",
+    "husky": "^4.2.5",
+    "node-sass": "^4.14.1",
     "tslint": "^6.1.2",
     "tslint-config-airbnb": "^5.11.2",
     "tslint-config-prettier": "^1.18.0",
-    "tslint-react": "^5.0.0"
+    "tslint-react": "^5.0.0",
+    "typescript": "^3.9.5",
+    "tslint-react-hooks": "^2.2.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "yarn run lint",
+      "pre-commit": "yarn run lint"
+    }
   }
 }

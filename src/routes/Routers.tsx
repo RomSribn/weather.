@@ -7,7 +7,6 @@ import { Home } from './Home/Home';
 const routers: React.FC = () => (
   <Switch>
     <Route exact={true} path={home} component={Home} />
-
     <Route component={NotFound} />
   </Switch>
 );

@@ -1,0 +1,28 @@
+@import '_assets/scss/abstractions/variables.scss';
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: $background;
+  color: $whiteAlt;
+  transition: transform 0.2s cubic-bezier(0, 0, 1, 1) 0ms;
+}
+
+.footer {
+  color: $whiteAlt;
+  font-size: 0.8rem;
+  letter-spacing: 0.07em;
+  line-height: 2;
+  padding: 30px 0;
+  width: 100%;
+}
+
+#lastUpdated {
+  color: $white;
+  padding: 5% 0;
+  &:before {
+    content: '-- ';
+  }
+  &:after {
+    content: ' --';
+  }
+}

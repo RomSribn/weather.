@@ -1,3 +1,6 @@
-export interface ITestProps {
-  test: String;
+export interface IiconArrElement {
+  code: number;
+  day: string;
+  night: string;
+  icon: string;
 }
