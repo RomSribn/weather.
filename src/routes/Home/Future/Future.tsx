@@ -4,7 +4,7 @@ import { IForecastProps } from '../interface';
 import './Future.scss';
 
 const future: React.FC<IForecastProps> = ({ forecastArray }) => (
-  <div id="future" className="wrapper">
+  <div className="future wrapper-forecast">
     {forecastArray.map((forecastItem) => (
       <FutureForecastItem key={forecastItem} />
     ))}

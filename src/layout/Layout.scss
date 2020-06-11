@@ -3,26 +3,32 @@
 body {
   font-family: 'Roboto', sans-serif;
   background: $background;
-  color: $whiteAlt;
+  color: $textColorAlt;
   transition: transform 0.2s cubic-bezier(0, 0, 1, 1) 0ms;
 }
 
 .footer {
-  color: $whiteAlt;
+  color: $textColorAlt;
   font-size: 0.8rem;
   letter-spacing: 0.07em;
   line-height: 2;
   padding: 30px 0;
   width: 100%;
+  @media (min-width: $mobileMd) {
+    font-size: 0.9rem;
+  }
 }
 
-#lastUpdated {
-  color: $white;
+.last-updated {
+  color: $textColor;
   padding: 5% 0;
   &:before {
     content: '-- ';
   }
   &:after {
     content: ' --';
+  }
+  @media (min-width: $desktopS) {
+    padding: 3%;
   }
 }

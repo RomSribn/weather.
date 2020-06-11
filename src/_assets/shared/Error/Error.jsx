@@ -15,7 +15,7 @@ function MySnackbarContentWrapper(props) {
       className="error-msg"
       aria-describedby="client-snackbar"
       message={
-        <span id="client-snackbar" className="message">
+        <span className="client-snackbar message">
           <ErrorIcon className="icon iconVariant" />
           {message}
         </span>

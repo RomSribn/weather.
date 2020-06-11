@@ -5,7 +5,7 @@ import { MainTemp } from './components/MainTemp';
 import './Current.scss';
 
 const current: React.FC = () => (
-  <div id="current" className="wrapper">
+  <div className="current wrapper-forecast">
     <NavBar />
     <PlaceInfo />
     <MainTemp />

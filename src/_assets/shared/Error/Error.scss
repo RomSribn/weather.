@@ -1,4 +1,4 @@
-@import "_assets/scss/abstractions/variables.scss";
+@import '_assets/scss/abstractions/variables.scss';
 
 .error {
   background-color: #bf4545;
@@ -10,7 +10,7 @@
 .icon {
   font-size: 20;
 }
-#client-snackbar {
+.client-snackbar {
   display: flex;
   align-items: center;
 }

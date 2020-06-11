@@ -4,8 +4,6 @@ import { Routers } from 'routes/Routers';
 import history from 'utils/history';
 import { Layout } from 'layout/Layout';
 
-import './App.scss';
-
 const app: React.FC = () => (
   <Router history={history}>
     <Layout>

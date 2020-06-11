@@ -11,7 +11,7 @@ const layout: React.FC<ILayoutProps> = ({ children }: ILayoutProps) => (
   <>
     {children}
     <footer className="footer">
-      <p id="lastUpdated">Last updated at 12:00pm</p>
+      <p className="last-updated">Last updated at 12:00pm</p>
       <p>
         Created by
         <a

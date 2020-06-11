@@ -9,9 +9,7 @@
     font-weight: bold;
     margin-top: -5%;
     @media (min-width: $mobile) {
-      & {
-        font-size: $big * 8;
-      }
+      font-size: $big * 8;
     }
   }
   .error-page-title {
@@ -22,25 +20,23 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid $whiteAlt;
+    border: 2px solid $textColorAlt
     padding: 5px;
     font-size: 14pt;
     height: 50px;
-    color: $whiteAlt;
+    color: $textColorAlt
     background-color: transparent;
     border-radius: 5px;
     margin-left: auto;
     margin-right: auto;
     transition: all 0.5s;
     &:hover {
-      background-color: $whiteAlt;
-      color: $white;
+      background-color: $textColorAlt
+      color: $textColor
       transition: all 0.5s;
     }
     @media (min-width: $mobile) {
-      & {
-        width: 30%;
-      }
+      width: 30%;
     }
   }
 }
