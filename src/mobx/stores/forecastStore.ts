@@ -1,13 +1,22 @@
-const cities = ['Amsterdam', 'London', 'Madrid'];
+import { ILocationResponse } from 'services/interfaces';
+import { IInitialForecastStore, IWeatherResponse } from '../iterfaces';
 
-export const createStore = () => {
-  const store = {
-    get allCities() {
-      return cities;
+export const createForecastStore = () => {
+  const store: IInitialForecastStore = {
+    errorMessage: [],
+
+    addError(error: string) {
+      this.errorMessage.push(error);
+    },
+    addWeather(weather: IWeatherResponse) {
+      this.weather = weather;
+    },
+    addLocation(location: ILocationResponse) {
+      this.location = location;
     },
   };
 
   return store;
 };
 
-export type TStore = ReturnType<typeof createStore>;
+export type TForecastStore = ReturnType<typeof createForecastStore>;

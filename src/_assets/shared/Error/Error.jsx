@@ -1,11 +1,11 @@
+import './Error.scss';
 import React from 'react';
 import PropTypes from 'prop-types';
 import ErrorIcon from '@material-ui/icons/Error';
 import CloseIcon from '@material-ui/icons/Close';
-import IconButton from '@material-ui/core/IconButton';
 import Snackbar from '@material-ui/core/Snackbar';
+import IconButton from '@material-ui/core/IconButton';
 import SnackbarContent from '@material-ui/core/SnackbarContent';
-import './Error.scss';
 
 function MySnackbarContentWrapper(props) {
   const { className, message, onClose, variant, ...other } = props;

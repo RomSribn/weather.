@@ -1,15 +1,18 @@
 import * as React from 'react';
 import { useLocalStore } from 'mobx-react-lite';
-import { createStore, TStore } from './forecastStore';
+import { createForecastStore, TForecastStore } from './forecastStore';
 
-export const storeContext = React.createContext<TStore | null>(null);
+export const StoreContext = React.createContext<TForecastStore | null>(null);
 
-export const storeProvider = ({ children }) => {
-  const store = useLocalStore(createStore);
+const StoreProvider: React.FC<object> = ({ children }) => {
+  const store = useLocalStore(createForecastStore);
 
   return (
-    <storeContext.Provider value={store}>{children}</storeContext.Provider>
+    <StoreContext.Provider value={store}>{children}</StoreContext.Provider>
   );
 };
 
-export { storeProvider as StoreProvider };
+// eslint-disable-next-line react-hooks/rules-of-hooks
+const useForecastStore = () => React.useContext(StoreContext);
+
+export { StoreProvider, useForecastStore };

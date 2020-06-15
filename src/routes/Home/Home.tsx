@@ -1,12 +1,11 @@
 import * as React from 'react';
-import { Current } from './Current/Current';
 import { Future } from './Future/Future';
+import { observer } from 'mobx-react-lite';
+import { Current } from './Current/Current';
 
-const home: React.FC = () => (
+export const Home: React.FC = observer(() => (
   <>
     <Current />
-    <Future forecastArray={[1, 2, 3]} />
+    <Future forecastArray={[1234, 2345, 3]} />
   </>
-);
-
-export { home as Home };
+));
