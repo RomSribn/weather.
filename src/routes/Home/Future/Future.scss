@@ -1,0 +1,74 @@
+@import '_assets/scss/abstractions/variables.scss';
+
+/*----------------
+    Future Forecast
+  -----------------*/
+.future {
+  margin-bottom: 10%;
+  padding: 0 10%;
+  & > .container {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    margin: 0;
+    padding: 5% 10%;
+    width: 100%;
+    @media (min-width: $mobileMd) {
+      border-bottom: none;
+      float: left;
+      padding: 20px;
+      width: 33.33%;
+    }
+  }
+  & > .container:first-child {
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    @media (min-width: $mobileMd) {
+      border-top: none;
+    }
+  }
+  .day {
+    padding: 0;
+    text-align: left;
+    text-transform: uppercase;
+    @media (min-width: $mobileMd) {
+      text-align: center;
+    }
+  }
+  .weather-icon {
+    float: right;
+    font-size: 0.5em;
+    height: 50px;
+    margin-left: 10%;
+    margin-top: -5%;
+    width: 50px;
+    @media (min-width: $mobileMd) {
+      font-size: 0.56em;
+      float: none;
+      height: 60px;
+      margin: 10% auto 5%;
+      width: 60px;
+    }
+    .i {
+      font-size: 65px;
+    }
+  }
+  .p {
+    text-align: left;
+    @media (min-width: $mobileMd) {
+      text-align: center;
+    }
+  }
+  @media (min-width: $mobileMd) {
+    font-size: 1.1rem;
+    padding: 0;
+    margin-bottom: 3%;
+
+    & > .container:not(:last-child) {
+      border-right: 1px solid rgba(255, 255, 255, 0.25);
+    }
+  }
+}
+
+.high:after,
+.low:after {
+  content: $degreeSymbol;
+  padding: 1px;
+}

@@ -1,4 +1,4 @@
-@import "_assets/scss/abstractions/variables.scss";
+@import '_assets/scss/abstractions/variables.scss';
 
 .error-page {
   text-align: center;
@@ -9,9 +9,7 @@
     font-weight: bold;
     margin-top: -5%;
     @media (min-width: $mobile) {
-      & {
-        font-size: $big * 8;
-      }
+      font-size: $big * 8;
     }
   }
   .error-page-title {
@@ -22,33 +20,23 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid $blue;
+    border: 2px solid $textColorAlt
     padding: 5px;
     font-size: 14pt;
     height: 50px;
-    color: $blue;
+    color: $textColorAlt
     background-color: transparent;
     border-radius: 5px;
     margin-left: auto;
     margin-right: auto;
     transition: all 0.5s;
     &:hover {
-      background-color: $blue;
-      color: #fff;
+      background-color: $textColorAlt
+      color: $textColor
       transition: all 0.5s;
     }
     @media (min-width: $mobile) {
-      & {
-        width: 30%;
-      }
-    }
-  }
-  @media (min-width: $mobile) {
-    & {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      width: 30%;
     }
   }
 }

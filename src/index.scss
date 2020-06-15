@@ -1,0 +1,212 @@
+@import '_assets/scss/abstractions/variables.scss';
+@import '_assets/scss/base/_animations.scss';
+
+.top-search {
+  position: top;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  min-width: 320px;
+  margin: auto;
+  background-color: #fff;
+}
+
+.show {
+  transform: translateY(-76px);
+}
+
+.mdc-btn {
+  min-width: 88px;
+  height: 36px;
+  padding: 0 16px;
+  border: 0;
+  outline: 0;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 600;
+  background-color: #9ad3de;
+  cursor: pointer;
+  box-shadow: 0 4px 4px 0 rgba(65, 65, 65, 0.3);
+  &:hover {
+    background-color: #b3f3ff;
+  }
+  &:active {
+    box-shadow: 0 6px 4px 0 rgba(65, 65, 65, 0.3);
+  }
+}
+
+.search-form {
+  display: flex;
+  justify-content: center;
+  transition: top 1s ease-out 0.5s;
+  .input {
+    margin-right: 12px;
+    padding: 4px;
+    outline: 0;
+    border: 0;
+    color: #c9c9c9;
+    font-size: 18px;
+    background-color: transparent;
+    &::placeholder {
+      color: #c9c9c9;
+    }
+  }
+}
+
+/*----------------
+    General
+  -----------------*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove outline > Apply other styles for accessibility */
+:focus {
+  outline: none;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  color: #fff;
+  font-family: 'Alegreya Sans', sans-serif;
+  font-weight: 300;
+  position: relative;
+  letter-spacing: 0.05rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+a {
+  color: #6d8ca0;
+  font-weight: 700;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+/*----------------
+    Containers
+  -----------------*/
+.wrapper-forecast-forecast {
+  color: #fff;
+  overflow: auto;
+  width: 100%;
+}
+
+/*----------------
+    Status Bar
+  -----------------*/
+.status {
+  background-color: #ffecae;
+  color: rgba(0, 0, 0, 0.5);
+  display: none;
+  font-size: 1rem;
+  width: 100%;
+  z-index: 100;
+  .p {
+    display: inline-block;
+    padding: 10px 40px 6px;
+  }
+  a {
+    color: #fff;
+  }
+  .close {
+    background: none;
+    color: rgba(0, 0, 0, 0.5);
+    float: right;
+    height: 40px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 40px;
+  }
+  &.error {
+    background-color: #ee9797;
+  }
+  &.success {
+    background-color: #82c886;
+  }
+}
+
+/*** Error & Success Messages ***/
+
+.status.error,
+.status.error .close,
+.status.success,
+.status.success .close {
+  color: #fff;
+}
+
+.status.error .fa-exclamation-triangle,
+.status.success .fa-check-circle {
+  margin-right: 10px;
+}
+
+/*----------------
+    Buttons
+  -----------------*/
+.button {
+  border: none;
+  cursor: pointer;
+}
+
+.locate-btn,
+.unit-btn {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  color: #fff;
+  height: 40px;
+  transition: background 1s ease-in-out, border 0.2s ease-in-out;
+  width: 40px;
+  @media (min-width: $mobileS) {
+    display: block;
+    margin-bottom: 10px;
+  }
+}
+
+.animation {
+  -webkit-animation: pulsing 2s infinite;
+  animation: pulsing 2s infinite;
+}
+
+.locate-btn {
+  margin-right: 10px;
+  &.pulse {
+    animation: pulse 2s infinite;
+  }
+  &.on {
+    background: rgba(255, 255, 255, 0.25);
+  }
+  &:focus,
+  &:hover {
+    border: 1px solid rgba(255, 255, 255, 0.75);
+  }
+}
+
+.unit-btn {
+  font-weight: 300;
+  padding-right: 3px;
+  padding-top: 2px;
+  text-transform: uppercase;
+  &.on {
+    background: rgba(255, 255, 255, 0.25);
+  }
+  &:focus,
+  &:hover {
+    border: 1px solid rgba(255, 255, 255, 0.75);
+  }
+  &:before {
+    content: $degreeSymbol; /* Degree symbol */
+    padding: 1px;
+  }
+}

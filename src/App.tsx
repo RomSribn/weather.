@@ -2,12 +2,13 @@ import * as React from 'react';
 import { Router } from 'react-router-dom';
 import { Routers } from 'routes/Routers';
 import history from 'utils/history';
-
-import './App.scss';
+import { Layout } from 'layout/Layout';
 
 const app: React.FC = () => (
   <Router history={history}>
-    <Routers />
+    <Layout>
+      <Routers />
+    </Layout>
   </Router>
 );
 
