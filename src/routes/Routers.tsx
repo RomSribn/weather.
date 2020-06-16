@@ -1,14 +1,12 @@
-import * as React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import React from 'react';
 import { home } from './variables';
-import { NotFound } from '_assets/shared/404/Page';
 import { Home } from './Home/Home';
+import { Route, Switch } from 'react-router-dom';
+import { NotFound } from '_assets/shared/404/Page';
 
-const routers: React.FC = () => (
+export const Routers: React.FC = () => (
   <Switch>
-    <Route exact={true} path={home} component={Home} />
+    <Route exact={true} path={home} component={() => <Home />} />
     <Route component={NotFound} />
   </Switch>
 );
-
-export { routers as Routers };

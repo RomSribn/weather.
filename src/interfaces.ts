@@ -4,3 +4,8 @@ export interface IiconArrElement {
   night: string;
   icon: string;
 }
+
+export interface IWeatherConfig {
+  ipifyApiKey: string;
+  openWeatherApiKey: string;
+}

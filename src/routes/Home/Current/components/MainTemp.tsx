@@ -1,10 +1,11 @@
 import * as React from 'react';
+import { IMainTemp } from 'routes/Home/interface';
 
-const mainTemp = () => (
+const MainTemp: React.FC<IMainTemp> = ({ temp, conditions }) => (
   <>
-    <p className="temp">--</p>
-    <p className="conditions">--</p>
+    <p className="temp">{temp}</p>
+    <p className="conditions">{conditions}</p>
   </>
 );
 
-export { mainTemp as MainTemp };
+export { MainTemp };

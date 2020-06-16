@@ -1,6 +1,6 @@
+import './Layout.scss';
 import * as React from 'react';
 import { ILayoutProps } from './interface';
-import './Layout.scss';
 
 const authorNameText: string = 'Roman Sribnyi';
 const authorResourceLinkText: string = 'https://github.com/RomSribn';

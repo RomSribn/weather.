@@ -1,7 +1,7 @@
-import * as React from 'react';
-import { FutureForecastItem } from './components/FutureForecastItem';
-import { IForecastProps } from '../interface';
 import './Future.scss';
+import * as React from 'react';
+import { IForecastProps } from '../interface';
+import { FutureForecastItem } from './components/FutureForecastItem';
 
 const future: React.FC<IForecastProps> = ({ forecastArray }) => (
   <div className="future wrapper-forecast">
