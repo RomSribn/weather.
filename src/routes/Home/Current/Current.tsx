@@ -13,16 +13,14 @@ const Current: React.FC<ICurrentProps> = observer(
     const dt = weather?.current.dt || 0;
     const temp = weather?.current.temp || 0;
     const conditions = weather?.current.weather[0].main || '--';
+    const icon = weather?.current.weather[0].icon || '';
     const city = location?.city || '--';
     const country = location?.country || '--';
 
-    // React.useEffect(() => {
-    //   getWeatherByIp();
-    // }, []);
     return (
       <div className="current wrapper-forecast">
         <NavBar />
-        <PlaceInfo dt={dt} city={city} country={country} />
+        <PlaceInfo dt={dt} city={city} country={country} icon={icon} />
         <MainTemp temp={Math.floor(temp / 10)} conditions={conditions} />
       </div>
     );
