@@ -23,19 +23,9 @@
     text-transform: uppercase;
   }
   .weather-icon {
-    height: 100px;
-    margin: 10% auto 7%;
-    width: 100px;
-    @media (min-width: $mobileMd) {
-      font-size: 0.95em;
-      height: 120px;
-      margin: 7% auto 3%;
-      width: 120px;
-    }
-    @media (min-width: $desktopS) {
-      font-size: 0.82em;
-      margin: 5% auto 2%;
-    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   @media (min-width: $mobileS) {
     padding-bottom: 15%;

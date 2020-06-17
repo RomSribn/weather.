@@ -8,22 +8,28 @@ import { PlaceInfo } from './components/PlaceInfo';
 
 const Current: React.FC<ICurrentProps> = observer(
   ({ forecastStore }: ICurrentProps) => {
-    const weather = forecastStore?.weather;
-    const location = forecastStore?.location;
-    const dt = weather?.current.dt || 0;
-    const temp = weather?.current.temp || 0;
-    const conditions = weather?.current.weather[0].main || '--';
-    const city = location?.city || '--';
-    const country = location?.country || '--';
+    const {
+      currentTemp,
+      currentDate,
+      location,
+      currentWeather,
+    } = forecastStore;
+    const { city, country } = location;
+    const { icon, description } = currentWeather;
 
-    // React.useEffect(() => {
-    //   getWeatherByIp();
-    // }, []);
     return (
       <div className="current wrapper-forecast">
         <NavBar />
-        <PlaceInfo dt={dt} city={city} country={country} />
-        <MainTemp temp={Math.floor(temp / 10)} conditions={conditions} />
+        <PlaceInfo
+          currentDate={currentDate}
+          city={city}
+          country={country}
+          icon={icon}
+        />
+        <MainTemp
+          temp={Math.floor(currentTemp / 10)}
+          conditions={description}
+        />
       </div>
     );
   },

@@ -17,6 +17,10 @@
       padding: 20px;
       width: 33.33%;
     }
+    .conditions,
+    .temp-range {
+      text-align: center;
+    }
   }
   & > .container:first-child {
     border-top: 1px solid rgba(255, 255, 255, 0.25);
@@ -26,29 +30,13 @@
   }
   .day {
     padding: 0;
-    text-align: left;
+    text-align: center;
     text-transform: uppercase;
-    @media (min-width: $mobileMd) {
-      text-align: center;
-    }
   }
   .weather-icon {
-    float: right;
-    font-size: 0.5em;
-    height: 50px;
-    margin-left: 10%;
-    margin-top: -5%;
-    width: 50px;
-    @media (min-width: $mobileMd) {
-      font-size: 0.56em;
-      float: none;
-      height: 60px;
-      margin: 10% auto 5%;
-      width: 60px;
-    }
-    .i {
-      font-size: 65px;
-    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .p {
     text-align: left;

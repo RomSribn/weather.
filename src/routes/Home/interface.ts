@@ -1,7 +1,8 @@
 export interface IPlaceInfoProps {
-  dt: number;
+  currentDate: number;
   city: string;
   country: string;
+  icon: string;
 }
 
 export interface IMainTemp {
