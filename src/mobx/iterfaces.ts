@@ -1,4 +1,4 @@
-import { ILocationResponse } from 'services/interfaces';
+import { ILocationResponse, IApiOpenweatherRequest } from 'services/interfaces';
 
 interface IWeather {
   id: number;
@@ -28,21 +28,23 @@ interface ICurrentWeather extends ICommonWeatherTypes {
   temp: number;
 }
 
-interface IDaylyWeather extends ICommonWeatherTypes {
+interface ITempResponse {
+  day: number;
+  min: number;
+  max: number;
+  night: number;
+  eve: number;
+  morn: number;
+}
+
+export interface IDaylyWeatherResponse extends ICommonWeatherTypes {
   feels_like: { day: number; night: number; eve: number; morn: number };
-  temp: {
-    day: number;
-    min: number;
-    max: number;
-    night: number;
-    eve: number;
-    morn: number;
-  };
+  temp: ITempResponse;
 }
 
 export interface IWeatherResponse {
   current: ICurrentWeather;
-  daily: IDaylyWeather[];
+  daily: IDaylyWeatherResponse[];
   lat: number;
   lon: number;
   timezone: string;
@@ -50,10 +52,13 @@ export interface IWeatherResponse {
 }
 
 export interface IInitialForecastStore {
-  weather?: IWeatherResponse;
-  location?: ILocationResponse;
+  currentTemp: number;
+  currentDate: number;
+  currentWeather: IWeather;
+  dailyWeather: IDaylyWeatherResponse[];
+  location: ILocationResponse;
   errorMessage: string[];
-  addError: (city: string) => void;
-  addWeather: (city: IWeatherResponse) => void;
-  addLocation: (city: ILocationResponse) => void;
+  addError: (error: string) => void;
+  addWeather: (weatherResponse: IWeatherResponse) => void;
+  addLocation: (location: ILocationResponse) => void;
 }

@@ -13,6 +13,8 @@ import { ReactComponent as ClearSkyNight } from '_assets/images/animated/01n.svg
 import { ReactComponent as ShowerRainDay } from '_assets/images/animated/09n.svg';
 import { ReactComponent as ShowerRainNight } from '_assets/images/animated/09n.svg';
 
+export const parseTemp = (temp: number) => Math.floor(temp / 10);
+
 const Mist: React.FC = () => <img src={mistSrc} alt="" />;
 
 export const iconArr: IIconsSet = {

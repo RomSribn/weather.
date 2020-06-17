@@ -2,7 +2,7 @@ import { weatherConfig } from 'config';
 import { IApiOpenweatherRequest } from './interfaces';
 
 const { openWeatherApiKey, ipifyApiKey } = weatherConfig;
-
+console.log(openWeatherApiKey);
 export const apiIpifyRequest: string = `https://geo.ipify.org/api/v1?apiKey=${ipifyApiKey}`;
 export const apiOpenweatherRequest = ({
   lat,
