@@ -1,14 +1,15 @@
 import * as React from 'react';
+import { useStores } from 'mobx/stores';
 import { Future } from './Future/Future';
 import { Current } from './Current/Current';
-import { useForecastStore } from 'mobx/stores';
 import { IWeatherResponse } from 'mobx/iterfaces';
 import { IIpifyResponse } from 'services/interfaces';
 import { getLocation, getWeatherByIp } from 'services/api';
 import { createForecastStore } from 'mobx/stores/forecastStore';
 
 export const Home: React.FC = () => {
-  const forecastStore = useForecastStore();
+  const initialForecastStore = createForecastStore();
+  const { forecastStore = initialForecastStore } = useStores();
 
   React.useEffect(() => {
     getLocation()
@@ -27,8 +28,8 @@ export const Home: React.FC = () => {
 
   return (
     <>
-      <Current forecastStore={forecastStore || createForecastStore()} />
-      <Future forecastStore={forecastStore || createForecastStore()} />
+      <Current forecastStore={forecastStore} />
+      <Future forecastStore={forecastStore} />
     </>
   );
 };
