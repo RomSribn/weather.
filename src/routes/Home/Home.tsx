@@ -18,7 +18,8 @@ export const Home: React.FC = () => {
         const { lat, lng } = response.location;
         getWeatherByIp({ lat, lng, city: selectedCity })
           .then((weather: IWeatherResponse) => {
-            forecastStore?.addWeather(weather);
+            const { list } = weather;
+            forecastStore?.addWeather(list);
           })
           .catch((error) => forecastStore?.addError(error));
       })

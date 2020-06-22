@@ -6,22 +6,28 @@ import { parseTemp } from '../../../variables';
 import { FutureForecastItem } from './components/FutureForecastItem';
 
 const Future: React.FC<IFutureProps> = observer(
-  ({ forecastStore: { dailyWeather } }: IFutureProps) => (
-    <div className="future wrapper-forecast">
-      {dailyWeather
-        .splice(0, 3)
-        .map(({ dt, temp: { min, max, day }, weather }) => (
-          <FutureForecastItem
-            key={dt}
-            icon={weather[0].icon}
-            condition={weather[0].description}
-            min={parseTemp(min)}
-            max={parseTemp(max)}
-            day={dt}
-          />
-        ))}
-    </div>
-  ),
+  ({ forecastStore: { weatherList } }: IFutureProps) => {
+    return (
+      <div className="future wrapper-forecast">
+        {weatherList
+          .splice(1, 3)
+          .map(({ dt, main: { temp_max, temp_min }, weather }) => {
+            const currentWeather = weather[0];
+            const { icon, description } = currentWeather;
+            return (
+              <FutureForecastItem
+                key={dt}
+                icon={icon}
+                condition={description}
+                min={parseTemp(temp_min)}
+                max={parseTemp(temp_max)}
+                day={dt}
+              />
+            );
+          })}
+      </div>
+    );
+  },
 );
 
 export { Future };

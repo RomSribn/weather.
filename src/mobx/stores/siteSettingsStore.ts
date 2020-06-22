@@ -2,7 +2,7 @@ import { ISiteSettingsStore } from '../iterfaces';
 
 export const createSiteSettingsStore = (): ISiteSettingsStore => ({
   isShowTopSearch: false,
-  selectedCity: 'London',
+  selectedCity: '',
   setIsShowTopSearch(isShowTopSearch: boolean) {
     this.isShowTopSearch = !!isShowTopSearch;
   },

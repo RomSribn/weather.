@@ -1,4 +1,4 @@
-import { IDaylyWeatherResponse, IInitialForecastStore } from 'mobx/iterfaces';
+import { IInitialForecastStore } from 'mobx/iterfaces';
 
 export interface IFutureForecastItem {
   icon: string;
