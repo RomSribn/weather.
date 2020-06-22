@@ -1,21 +1,24 @@
 import * as React from 'react';
 import { useLocalStore } from 'mobx-react-lite';
-import { createSecondStore, TSecondtStore } from './secondStore';
 import { createForecastStore, TForecastStore } from './forecastStore';
+import {
+  createSiteSettingsStore,
+  TSiteSettingsStore,
+} from './siteSettingsStore';
 
 interface IStoresContext {
-  forecastStore?: TForecastStore;
-  secondStore?: TSecondtStore;
+  forecastStore: TForecastStore;
+  siteSettingsStore: TSiteSettingsStore;
 }
 
 export const StoreContext = React.createContext<IStoresContext | null>(null);
 
 const StoreProvider: React.FC<object> = ({ children }) => {
   const forecastStore = useLocalStore(createForecastStore);
-  const secondStore = useLocalStore(createSecondStore);
+  const siteSettingsStore = useLocalStore(createSiteSettingsStore);
 
   return (
-    <StoreContext.Provider value={{ forecastStore, secondStore }}>
+    <StoreContext.Provider value={{ forecastStore, siteSettingsStore }}>
       {children}
     </StoreContext.Provider>
   );
@@ -26,9 +29,11 @@ const useForecastStore = () => React.useContext(StoreContext);
 
 const useStores = (): IStoresContext => {
   const stores = React.useContext(StoreContext);
-  const forecastStore = stores?.forecastStore;
-  const secondStore = stores?.secondStore;
-  return { forecastStore, secondStore };
+
+  if (!stores) {
+    throw new Error('useStore must be used within a StoreProvider.');
+  }
+  return stores;
 };
 
 export { StoreProvider, useForecastStore, useStores };

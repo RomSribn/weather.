@@ -5,11 +5,10 @@ import { Current } from './Current/Current';
 import { IWeatherResponse } from 'mobx/iterfaces';
 import { IIpifyResponse } from 'services/interfaces';
 import { getLocation, getWeatherByIp } from 'services/api';
-import { createForecastStore } from 'mobx/stores/forecastStore';
 
 export const Home: React.FC = () => {
-  const initialForecastStore = createForecastStore();
-  const { forecastStore = initialForecastStore } = useStores();
+  const { forecastStore, siteSettingsStore } = useStores();
+  const { selectedCity } = siteSettingsStore;
 
   React.useEffect(() => {
     getLocation()
@@ -17,7 +16,7 @@ export const Home: React.FC = () => {
         const { location } = response;
         forecastStore?.addLocation(location);
         const { lat, lng } = response.location;
-        getWeatherByIp({ lat, lng })
+        getWeatherByIp({ lat, lng, city: selectedCity })
           .then((weather: IWeatherResponse) => {
             forecastStore?.addWeather(weather);
           })
@@ -28,7 +27,10 @@ export const Home: React.FC = () => {
 
   return (
     <>
-      <Current forecastStore={forecastStore} />
+      <Current
+        forecastStore={forecastStore}
+        siteSettingsStore={siteSettingsStore}
+      />
       <Future forecastStore={forecastStore} />
     </>
   );

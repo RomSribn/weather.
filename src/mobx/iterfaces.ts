@@ -62,3 +62,10 @@ export interface IInitialForecastStore {
   addWeather: (weatherResponse: IWeatherResponse) => void;
   addLocation: (location: ILocationResponse) => void;
 }
+
+export interface ISiteSettingsStore {
+  isShowTopSearch: boolean;
+  selectedCity: string;
+  setIsShowTopSearch: (isShowTopSearch: boolean) => void;
+  addCity: (city: string) => void;
+}
