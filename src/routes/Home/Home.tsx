@@ -1,34 +1,48 @@
 import * as React from 'react';
+import { useStores } from 'mobx/stores';
 import { Future } from './Future/Future';
+import { observer } from 'mobx-react-lite';
 import { Current } from './Current/Current';
-import { useForecastStore } from 'mobx/stores';
 import { IWeatherResponse } from 'mobx/iterfaces';
 import { IIpifyResponse } from 'services/interfaces';
 import { getLocation, getWeatherByIp } from 'services/api';
-import { createForecastStore } from 'mobx/stores/forecastStore';
 
-export const Home: React.FC = () => {
-  const forecastStore = useForecastStore();
+export const Home: React.FC = observer(() => {
+  const { forecastStore, siteSettingsStore } = useStores();
+  const { addLocation, addWeather, addLocationName, addError } = forecastStore;
+  const { selectedCity, setLastUpdatedTime } = siteSettingsStore;
 
   React.useEffect(() => {
     getLocation()
       .then((response: IIpifyResponse) => {
         const { location } = response;
-        forecastStore?.addLocation(location);
+        addLocation(location);
         const { lat, lng } = response.location;
-        getWeatherByIp({ lat, lng })
+        getWeatherByIp({ lat, lng, city: selectedCity })
           .then((weather: IWeatherResponse) => {
-            forecastStore?.addWeather(weather);
+            const {
+              list,
+              city: { name, country },
+            } = weather;
+            addWeather(list);
+            addLocationName(`${name}, ${country}`);
+            setLastUpdatedTime();
           })
-          .catch((error) => forecastStore?.addError(error));
+          .catch((error) => addError(error));
       })
-      .catch((error) => forecastStore?.addError(error));
+      .catch((error) => addError(error));
   });
 
   return (
     <>
-      <Current forecastStore={forecastStore || createForecastStore()} />
-      <Future forecastStore={forecastStore || createForecastStore()} />
+      <Current
+        forecastStore={forecastStore}
+        siteSettingsStore={siteSettingsStore}
+      />
+      <Future
+        forecastStore={forecastStore}
+        siteSettingsStore={siteSettingsStore}
+      />
     </>
   );
-};
+});

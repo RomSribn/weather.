@@ -1,6 +1,7 @@
 export interface IApiOpenweatherRequest {
   lat: number;
   lng: number;
+  city: string;
 }
 
 export interface ILocationResponse {

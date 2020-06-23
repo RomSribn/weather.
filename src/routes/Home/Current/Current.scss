@@ -46,6 +46,39 @@
   }
 }
 
+.show-top-search {
+  top: 0 !important;
+}
+
+.top-search {
+  position: fixed;
+  top: -76px;
+  left: 0;
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  min-width: 320px;
+  margin: auto;
+  background-color: #fff;
+  transition: top 1s ease-out 0.5s;
+  .search-form {
+    display: flex;
+    justify-content: center;
+    input {
+      margin-right: 12px;
+      padding: 4px;
+      outline: 0;
+      border: 0;
+      color: #c9c9c9;
+      font-size: 18px;
+      background-color: transparent;
+      &::placeholder {
+        color: #c9c9c9;
+      }
+    }
+  }
+}
+
 .temp {
   font-size: 3em;
   line-height: 1.3;

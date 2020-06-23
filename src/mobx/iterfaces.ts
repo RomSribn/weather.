@@ -7,58 +7,66 @@ interface IWeather {
   icon: string;
 }
 
-interface ICommonWeatherTypes {
-  clouds: number;
-  dew_point: number;
-  dt: number;
+interface IMain {
+  feels_like: number;
+  grnd_level: number;
   humidity: number;
   pressure: number;
-  rain?: number;
-  sunrise: number;
-  sunset: number;
-  uvi: number;
-  weather: IWeather[];
-  wind_deg: number;
-  wind_speed: number;
-  visability?: number;
-}
-
-interface ICurrentWeather extends ICommonWeatherTypes {
-  feels_like: number;
+  sea_level: number;
   temp: number;
+  temp_kf: number;
+  temp_max: number;
+  temp_min: number;
 }
 
-interface ITempResponse {
-  day: number;
-  min: number;
-  max: number;
-  night: number;
-  eve: number;
-  morn: number;
-}
-
-export interface IDaylyWeatherResponse extends ICommonWeatherTypes {
-  feels_like: { day: number; night: number; eve: number; morn: number };
-  temp: ITempResponse;
+export interface IList {
+  clouds: { all: number };
+  dt: number;
+  dt_txt: string;
+  rain: { '3h': number };
+  sys: { pod: string };
+  weather: IWeather[];
+  main: IMain;
 }
 
 export interface IWeatherResponse {
-  current: ICurrentWeather;
-  daily: IDaylyWeatherResponse[];
-  lat: number;
-  lon: number;
-  timezone: string;
-  timezone_offset: number;
+  city: {
+    coord: { lat: number; lng: number };
+    country: string;
+    id: number;
+    name: string;
+    population: number;
+    sunrise: number;
+    sunset: number;
+    timezone: number;
+  };
+  cnt: number;
+  cod: string;
+  list: IList[];
+  message: number;
 }
 
 export interface IInitialForecastStore {
   currentTemp: number;
   currentDate: number;
   currentWeather: IWeather;
-  dailyWeather: IDaylyWeatherResponse[];
+  weatherList: IList[];
   location: ILocationResponse;
   errorMessage: string[];
+  locationName: string;
+  addLocationName: (locationName: string) => void;
   addError: (error: string) => void;
-  addWeather: (weatherResponse: IWeatherResponse) => void;
+  addWeather: (weatherResponse: IList[]) => void;
   addLocation: (location: ILocationResponse) => void;
+}
+
+export interface ISiteSettingsStore {
+  isShowTopSearch: boolean;
+  selectedCity: string;
+  isFarenheit: boolean;
+  lastUpdatedTime: string;
+  setLastUpdatedTime: () => void;
+  setIsFarenheit: (isFarenheit: boolean) => void;
+  setIsShowTopSearch: (isShowTopSearch: boolean) => void;
+  addCity: (city: string) => void;
 }

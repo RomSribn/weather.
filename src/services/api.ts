@@ -7,8 +7,8 @@ export const getLocation = () =>
     throw new Error('Not search((');
   });
 
-export const getWeatherByIp = ({ lat, lng }: IApiOpenweatherRequest) =>
-  fetch(apiOpenweatherRequest({ lat, lng })).then((response) => {
+export const getWeatherByIp = ({ lat, lng, city }: IApiOpenweatherRequest) =>
+  fetch(apiOpenweatherRequest({ lat, lng, city })).then((response) => {
     if (response.ok) return response.json();
     throw new Error('Error fetching');
   });

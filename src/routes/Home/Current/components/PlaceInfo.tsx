@@ -7,13 +7,13 @@ const PlaceInfo: React.FC<IPlaceInfoProps> = ({
   city,
   country,
   icon,
+  locationName,
 }) => {
   const date = currentDate ? new Date(currentDate * 1000).toDateString() : '--';
-  const location: string = `${city}, ${country}`;
   const WeatherIcon = iconArr[icon];
   return (
     <>
-      <h1 className="location">{location}</h1>
+      <h1 className="location">{locationName}</h1>
       <h2 className="date">{date}</h2>
       <div className="weather-icon">{WeatherIcon && <WeatherIcon />}</div>
     </>

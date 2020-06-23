@@ -14,6 +14,9 @@ import { ReactComponent as ShowerRainDay } from '_assets/images/animated/09n.svg
 import { ReactComponent as ShowerRainNight } from '_assets/images/animated/09n.svg';
 
 export const parseTemp = (temp: number) => Math.floor(temp / 10);
+const toFarenheit = (temp: number) => Math.floor(temp / 10) * (9 / 5) + 32;
+export const getTemperature = (isFarenheit: boolean, temp: number): number =>
+  Math.floor(isFarenheit ? toFarenheit(temp) : Math.floor(temp / 10));
 
 const Mist: React.FC = () => <img src={mistSrc} alt="" />;
 
