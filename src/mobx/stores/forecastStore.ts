@@ -21,6 +21,10 @@ export const createForecastStore = (): IInitialForecastStore => ({
     region: '--',
     timezone: '--',
   },
+  locationName: '',
+  addLocationName(locationName: string) {
+    this.locationName = locationName;
+  },
   addError(error: string) {
     this.errorMessage.push(error);
   },

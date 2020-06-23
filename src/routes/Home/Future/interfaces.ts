@@ -1,4 +1,4 @@
-import { IInitialForecastStore } from 'mobx/iterfaces';
+import { IInitialForecastStore, ISiteSettingsStore } from 'mobx/iterfaces';
 
 export interface IFutureForecastItem {
   icon: string;
@@ -10,4 +10,5 @@ export interface IFutureForecastItem {
 
 export interface IFutureProps {
   forecastStore: IInitialForecastStore;
+  siteSettingsStore: ISiteSettingsStore;
 }

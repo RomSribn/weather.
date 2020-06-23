@@ -53,6 +53,8 @@ export interface IInitialForecastStore {
   weatherList: IList[];
   location: ILocationResponse;
   errorMessage: string[];
+  locationName: string;
+  addLocationName: (locationName: string) => void;
   addError: (error: string) => void;
   addWeather: (weatherResponse: IList[]) => void;
   addLocation: (location: ILocationResponse) => void;
@@ -61,6 +63,10 @@ export interface IInitialForecastStore {
 export interface ISiteSettingsStore {
   isShowTopSearch: boolean;
   selectedCity: string;
+  isFarenheit: boolean;
+  lastUpdatedTime: string;
+  setLastUpdatedTime: () => void;
+  setIsFarenheit: (isFarenheit: boolean) => void;
   setIsShowTopSearch: (isShowTopSearch: boolean) => void;
   addCity: (city: string) => void;
 }

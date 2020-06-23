@@ -3,6 +3,7 @@ export interface IPlaceInfoProps {
   city: string;
   country: string;
   icon: string;
+  locationName: string;
 }
 
 export interface IMainTemp {

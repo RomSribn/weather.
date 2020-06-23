@@ -1,5 +1,6 @@
 import './Current.scss';
 import * as React from 'react';
+import { getTemperature } from 'variables';
 import { observer } from 'mobx-react-lite';
 import { ICurrentProps } from './interfaces';
 import { NavBar } from './components/NavBar';
@@ -14,30 +15,39 @@ const Current: React.FC<ICurrentProps> = observer(
       currentDate,
       location,
       currentWeather,
+      locationName,
     } = forecastStore;
     const {
       isShowTopSearch,
-      selectedCity,
       setIsShowTopSearch,
+      isFarenheit,
+      setIsFarenheit,
       addCity,
     } = siteSettingsStore;
     const { city, country } = location;
     const { icon, description } = currentWeather;
-
+    const mainTemp = getTemperature(isFarenheit, currentTemp)
     return (
       <div className="current wrapper-forecast">
-        <NavBar setIsShowTopSearch={setIsShowTopSearch} />
+        <NavBar
+          setIsShowTopSearch={setIsShowTopSearch}
+          isShowTopSearch={isShowTopSearch}
+          isFarenheit={isFarenheit}
+          setIsFarenheit={setIsFarenheit}
+        />
         <PlaceInfo
           currentDate={currentDate}
           city={city}
           country={country}
           icon={icon}
+          locationName={locationName}
         />
-        <MainTemp
-          temp={Math.floor(currentTemp / 10)}
-          conditions={description}
+        <MainTemp temp={mainTemp} conditions={description} />
+        <TopSearch
+          isShowTopSearch={isShowTopSearch}
+          setIsShowTopSearch={setIsShowTopSearch}
+          addCity={addCity}
         />
-        <TopSearch isShowTopSearch={isShowTopSearch} />
       </div>
     );
   },

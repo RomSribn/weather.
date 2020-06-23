@@ -7,6 +7,7 @@ const FutureForecastItem: React.FC<IFutureForecastItem> = observer(
   ({ icon, condition, min, max, day }) => {
     const WeatherIcon = iconArr[icon];
     const dayParsed: string = new Date(day * 1000).toDateString().split(' ')[0];
+
     return (
       <div className="container">
         <h3 className="day">{dayParsed}</h3>

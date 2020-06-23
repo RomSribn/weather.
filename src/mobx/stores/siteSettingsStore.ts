@@ -1,12 +1,20 @@
 import { ISiteSettingsStore } from '../iterfaces';
 
 export const createSiteSettingsStore = (): ISiteSettingsStore => ({
+  isFarenheit: true,
   isShowTopSearch: false,
   selectedCity: '',
-  setIsShowTopSearch(isShowTopSearch: boolean) {
+  lastUpdatedTime: new Date().toLocaleTimeString(),
+  setLastUpdatedTime() {
+    this.lastUpdatedTime = new Date().toLocaleTimeString();
+  },
+  setIsShowTopSearch(isShowTopSearch) {
     this.isShowTopSearch = !!isShowTopSearch;
   },
-  addCity(city: string) {
+  setIsFarenheit(isFarenheit) {
+    this.isFarenheit = !!isFarenheit;
+  },
+  addCity(city) {
     this.selectedCity = city;
   },
 });
